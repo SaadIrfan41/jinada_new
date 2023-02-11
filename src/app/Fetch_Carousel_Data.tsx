@@ -25,14 +25,17 @@ export interface carouselInterface {
 }
 
 async function fetchCarouselData() {
-  let res = await fetch('http://localhost:3000/api/carouselData')
-  return res.json()
+  // let res = await fetch('http://localhost:3000/api/carouselData')
+  let res = 'Hello'
+  return res
 }
 
 const CarouselData = async () => {
-  const carousel: carouselInterface = await fetchCarouselData()
+  const carousel = await fetchCarouselData()
+  // const carousel: carouselInterface = await fetchCarouselData()
 
-  return <Carousel carouselData={carousel.carouselData} />
+  // return <Carousel carouselData={carousel.carouselData} />
+  return carousel
 }
 
 export default CarouselData

@@ -44,9 +44,53 @@ const Carousel = ({ carouselData }: carouselInterface) => {
     },
   }
 
+  const staggerChildren = {
+    animate: {
+      transition: {
+        delayChildren: 0.4,
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const wordAnimation = {
+    initial: {
+      y: 100,
+    },
+    animate: {
+      y: 0,
+      transition: {
+        ease: [0.6, 0.01, 0.05, 0.95],
+        duration: 1,
+      },
+    },
+  }
+
+  type AnimatedWordsProps = {
+    title: string
+  }
+
+  const AnimatedWords = ({ title }: AnimatedWordsProps) => {
+    return (
+      <motion.span
+        className='inline-block overflow-hidden'
+        initial={{ y: 100 }}
+        animate={{
+          y: 0,
+          transition: {
+            ease: [0.6, 0.01, 0.05, 0.95],
+            duration: 1,
+          },
+        }}
+      >
+        {title}
+      </motion.span>
+    )
+  }
+
   return (
     <div
-      className={`${carouselData[carouselIndex].backgroundColor}  ${carouselData[carouselIndex].textColor} relative grid  h-screen grid-cols-2 overflow-hidden pl-5 text-base  duration-500  lg:pl-16 `}
+      className={`${carouselData[carouselIndex].backgroundColor}  ${carouselData[carouselIndex].textColor} relative grid  h-screen grid-cols-2 overflow-hidden pl-5 text-base    lg:pl-16 `}
     >
       <div className='absolute top-[55px] left-[60px]  z-20 cursor-pointer'>
         <Link href={'/'}>
@@ -141,7 +185,7 @@ const Carousel = ({ carouselData }: carouselInterface) => {
               <img
                 className=' absolute bottom-0  right-0  lg:max-h-[807px] lg:max-w-[706px]'
                 src='/image04.png'
-                loading='lazy'
+                loading='eager'
                 // fill={true}
                 // style={{ objectFit: 'contain' }}
                 // width={866}
@@ -157,20 +201,33 @@ const Carousel = ({ carouselData }: carouselInterface) => {
       </AnimatePresence>
 
       <div className=' h-screen pt-40 md:pt-60 xl:pt-80  '>
-        <div className='  mb-2 font-semibold uppercase tracking-[3.58px] '>
-          {carouselData[carouselIndex].firstLine}
+        <div className='  mb-2 font-semibold uppercase tracking-[3.58px]  inline-block overflow-hidden'>
+          <AnimatedWords title={carouselData[carouselIndex].firstLine} />
         </div>
 
-        <b className=' text-xl capitalize leading-[29px] tracking-[-2.18px] lg:text-5xl lg:leading-[69px] '>
-          <p className=''>{carouselData[carouselIndex].secondLine}</p>
-          <p className=''>{carouselData[carouselIndex].thirdLine}</p>
+        <b className=' text-xl capitalize leading-[29px] tracking-[-2.18px] lg:text-6xl lg:leading-[69px] '>
+          <p className=' overflow-hidden '>
+            <AnimatedWords title={carouselData[carouselIndex].secondLine} />
+          </p>
+          <p className=' overflow-hidden'>
+            <AnimatedWords title={carouselData[carouselIndex].thirdLine} />
+          </p>
         </b>
-        <div className=' tranc md:text-md mt-[14px] max-w-[720px] text-sm font-medium leading-[29px]'>
-          {carouselData[carouselIndex].fourthLine}
+        <div className=' tranc md:text-base mt-[14px] max-w-[560px] text-sm font-medium leading-[29px] overflow-hidden'>
+          <AnimatedWords title={carouselData[carouselIndex].fourthLine} />
         </div>
-        <div className=' mt-10  flex items-center  font-semibold tracking-[-0.4px] '>
-          {carouselData[carouselIndex].fifthLine}
-          <div
+        <div className=' mt-10  flex items-center  font-semibold tracking-[-0.4px]  overflow-hidden '>
+          <AnimatedWords title={carouselData[carouselIndex].fifthLine} />
+
+          <motion.div
+            initial={{ y: 100 }}
+            animate={{
+              y: 0,
+              transition: {
+                ease: [0.6, 0.01, 0.05, 0.95],
+                duration: 1,
+              },
+            }}
             className={`ml-[11px] grid h-[47px]  w-[47px] place-items-center rounded-full ${carouselData[carouselIndex].ctaBackgroundColor}`}
           >
             <svg
@@ -187,10 +244,18 @@ const Carousel = ({ carouselData }: carouselInterface) => {
                 fill={carouselData[carouselIndex].ctaArrowColor}
               />
             </svg>
-          </div>
+          </motion.div>
         </div>
-        <div className=' mt-10 flex'>
-          <svg
+        <div className=' mt-10 flex overflow-hidden'>
+          <motion.svg
+            initial={{ y: 100 }}
+            animate={{
+              y: 0,
+              transition: {
+                ease: [0.6, 0.01, 0.05, 0.95],
+                duration: 1,
+              },
+            }}
             className='mr-[38px]'
             xmlns='http://www.w3.org/2000/svg'
             width='9.379'
@@ -204,9 +269,17 @@ const Carousel = ({ carouselData }: carouselInterface) => {
               transform='translate(-1.609)'
               fill={carouselData[carouselIndex].socialIconsColor}
             />
-          </svg>
+          </motion.svg>
 
-          <svg
+          <motion.svg
+            initial={{ y: 100 }}
+            animate={{
+              y: 0,
+              transition: {
+                ease: [0.6, 0.01, 0.05, 0.95],
+                duration: 1,
+              },
+            }}
             className='mr-[38px]'
             xmlns='http://www.w3.org/2000/svg'
             width='21.562'
@@ -220,9 +293,17 @@ const Carousel = ({ carouselData }: carouselInterface) => {
               transform='translate(0 -3.381)'
               fill={carouselData[carouselIndex].socialIconsColor}
             />
-          </svg>
+          </motion.svg>
 
-          <svg
+          <motion.svg
+            initial={{ y: 100 }}
+            animate={{
+              y: 0,
+              transition: {
+                ease: [0.6, 0.01, 0.05, 0.95],
+                duration: 1,
+              },
+            }}
             xmlns='http://www.w3.org/2000/svg'
             width='18.877'
             height='18.873'
@@ -235,14 +316,16 @@ const Carousel = ({ carouselData }: carouselInterface) => {
               transform='translate(0.005 -2.238)'
               fill={carouselData[carouselIndex].socialIconsColor}
             />
-          </svg>
+          </motion.svg>
         </div>
       </div>
       <div className=' grid grid-cols-12 '>
         <div className='  col-span-12   lg:col-span-10'>
-          <div className=' overflow-hidden'>
+          <motion.div className=' overflow-hidden'>
             <motion.div
+              initial={{ width: '0%' }}
               animate={{
+                width: '100%',
                 x: `-${carouselIndex * 100}%`,
               }}
               transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
@@ -261,7 +344,7 @@ const Carousel = ({ carouselData }: carouselInterface) => {
                 />
               ))}
             </motion.div>
-          </div>
+          </motion.div>
         </div>
 
         <div className=' relative col-span-12  flex flex-col  items-end justify-center  lg:col-span-1 '>

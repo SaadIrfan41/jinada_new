@@ -249,12 +249,11 @@ const Carousel = ({ carouselData }: carouselInterface) => {
               className=' flex h-screen relative'
             >
               {carouselData.map((data: carouselDataType) => (
-                <img
-                  // priority
-                  // width={800}
-                  // height={100}
+                <Image
+                  priority
+                  width={800}
+                  height={100}
                   // fill={true}
-                  loading='eager'
                   key={data.id}
                   className='   min-w-full  object-cover'
                   src={data.image}

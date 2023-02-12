@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import Image from 'next/image'
+
 import React, { useState } from 'react'
 // import Navbar from '../Navbar'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { carouselInterface, carouselDataType } from '@/app/Fetch_Carousel_Data'
+import Image from 'next/image'
 
 const Carousel = ({ carouselData }: carouselInterface) => {
   const [carouselIndex, setCarouselIndex] = useState(0)
@@ -245,16 +246,19 @@ const Carousel = ({ carouselData }: carouselInterface) => {
                 x: `-${carouselIndex * 100}%`,
               }}
               transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-              className=' flex h-screen'
+              className=' flex h-screen relative'
             >
               {carouselData.map((data: carouselDataType) => (
-                <Image
-                  width={800}
-                  height={100}
+                <img
+                  // priority
+                  // width={800}
+                  // height={100}
+                  // fill={true}
+                  loading='eager'
                   key={data.id}
                   className='   min-w-full  object-cover'
                   src={data.image}
-                  alt='Picture of the author'
+                  alt='Carousel Image'
                 />
               ))}
             </motion.div>

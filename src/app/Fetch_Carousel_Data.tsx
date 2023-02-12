@@ -25,8 +25,8 @@ export interface carouselInterface {
 }
 
 async function fetchCarouselData() {
-  // let res = await fetch('http://localhost:3000/api/carouselData')
-  let res = await fetch('https://jinada-new.vercel.app/api/carouselData')
+  let res = await fetch('http://localhost:3000/api/carouselData')
+  // let res = await fetch('https://jinada-new.vercel.app/api/carouselData')
 
   return res.json()
 }

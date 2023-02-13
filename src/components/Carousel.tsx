@@ -1,16 +1,39 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import Navbar from '../Navbar'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { carouselInterface, carouselDataType } from '@/app/Fetch_Carousel_Data'
 import Image from 'next/image'
 
+// type AnimatedWordsProps = {
+//   text: string
+// }
+
+// const AnimatedWords = ({ text }: AnimatedWordsProps) => {
+//   return (
+//     <motion.span
+//       className='block overflow-hidden'
+//       initial={{ y: 100 }}
+//       animate={{
+//         y: 0,
+//         transition: {
+//           ease: [0.6, 0.01, 0.05, 0.95],
+//           duration: 1,
+//         },
+//       }}
+//     >
+//       {text}
+//     </motion.span>
+//   )
+// }
+
 const Carousel = ({ carouselData }: carouselInterface) => {
   const [carouselIndex, setCarouselIndex] = useState(0)
   const [isopen, setisopen] = useState(false)
+  // const [index, setIndex] = useState()
 
   const handelClickForward = () => {
     if (carouselIndex >= carouselData.length - 1) {
@@ -43,50 +66,33 @@ const Carousel = ({ carouselData }: carouselInterface) => {
       },
     },
   }
-
-  const staggerChildren = {
-    animate: {
-      transition: {
-        delayChildren: 0.4,
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const wordAnimation = {
-    initial: {
-      y: 100,
-    },
+  const variants = {
+    initial: { y: 150 },
     animate: {
       y: 0,
       transition: {
         ease: [0.6, 0.01, 0.05, 0.95],
-        duration: 1,
+        duration: 0.8,
+      },
+    },
+    exit: {
+      y: 150,
+      transition: {
+        // ease: [0.6, 0.01, 0.05, 0.95],
+        duration: 0.2,
       },
     },
   }
 
-  type AnimatedWordsProps = {
-    title: string
-  }
-
-  const AnimatedWords = ({ title }: AnimatedWordsProps) => {
-    return (
-      <motion.span
-        className='inline-block overflow-hidden'
-        initial={{ y: 100 }}
-        animate={{
-          y: 0,
-          transition: {
-            ease: [0.6, 0.01, 0.05, 0.95],
-            duration: 1,
-          },
-        }}
-      >
-        {title}
-      </motion.span>
-    )
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselIndex >= carouselData.length - 1) {
+        return setCarouselIndex(0)
+      }
+      setCarouselIndex(carouselIndex + 1)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [carouselIndex, carouselData.length])
 
   return (
     <div
@@ -202,121 +208,162 @@ const Carousel = ({ carouselData }: carouselInterface) => {
 
       <div className=' h-screen pt-40 md:pt-60 xl:pt-80  '>
         <div className='  mb-2 font-semibold uppercase tracking-[3.58px]  inline-block overflow-hidden'>
-          <AnimatedWords title={carouselData[carouselIndex].firstLine} />
+          {/* <AnimatedWords text={carouselData[carouselIndex].firstLine} /> */}
+          <AnimatePresence mode='wait'>
+            <motion.div
+              key={carouselData[carouselIndex].firstLine + carouselIndex}
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              // transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+            >
+              {carouselData[carouselIndex].firstLine}{' '}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        <b className=' text-xl capitalize leading-[29px] tracking-[-2.18px] lg:text-6xl lg:leading-[69px] '>
-          <p className=' overflow-hidden '>
-            <AnimatedWords title={carouselData[carouselIndex].secondLine} />
-          </p>
-          <p className=' overflow-hidden'>
-            <AnimatedWords title={carouselData[carouselIndex].thirdLine} />
-          </p>
+        <b className=' text-xl capitalize leading-[29px] tracking-[-2.18px] lg:text-6xl lg:leading-[69px] block overflow-hidden'>
+          <AnimatePresence mode='wait'>
+            <motion.p
+              key={carouselData[carouselIndex].secondLine + carouselIndex}
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              className='  overflow-hidden '
+            >
+              {carouselData[carouselIndex].secondLine}
+            </motion.p>
+
+            <motion.p
+              key={carouselData[carouselIndex].thirdLine + carouselIndex}
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              className=' overflow-hidden '
+            >
+              {carouselData[carouselIndex].thirdLine}
+            </motion.p>
+          </AnimatePresence>
         </b>
         <div className=' tranc md:text-base mt-[14px] max-w-[560px] text-sm font-medium leading-[29px] overflow-hidden'>
-          <AnimatedWords title={carouselData[carouselIndex].fourthLine} />
+          <AnimatePresence mode='wait'>
+            <motion.div
+              key={carouselData[carouselIndex].fourthLine + carouselIndex}
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              // transition={{ type: 'spring', damping: 20, stiffness: 300 }}
+            >
+              <div>{carouselData[carouselIndex].fourthLine}</div>
+            </motion.div>
+          </AnimatePresence>
         </div>
         <div className=' mt-10  flex items-center  font-semibold tracking-[-0.4px]  overflow-hidden '>
-          <AnimatedWords title={carouselData[carouselIndex].fifthLine} />
-
-          <motion.div
-            initial={{ y: 100 }}
-            animate={{
-              y: 0,
-              transition: {
-                ease: [0.6, 0.01, 0.05, 0.95],
-                duration: 1,
-              },
-            }}
-            className={`ml-[11px] grid h-[47px]  w-[47px] place-items-center rounded-full ${carouselData[carouselIndex].ctaBackgroundColor}`}
-          >
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='5.976'
-              height='10.453'
-              viewBox='0 0 5.976 10.453'
+          <AnimatePresence mode='wait'>
+            <motion.div
+              key={carouselData[carouselIndex].fifthLine + carouselIndex}
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              // transition={{ type: 'spring', damping: 20, stiffness: 300 }}
             >
-              <path
-                id='Icon_ionic-ios-arrow-back'
-                data-name='Icon ionic-ios-arrow-back'
-                d='M15.425,11.419,11.47,7.467a.747.747,0,0,1,1.058-1.055l4.481,4.478a.746.746,0,0,1,.022,1.03l-4.5,4.509a.747.747,0,1,1-1.058-1.055Z'
-                transform='translate(-11.251 -6.194)'
-                fill={carouselData[carouselIndex].ctaArrowColor}
-              />
-            </svg>
-          </motion.div>
+              <div>{carouselData[carouselIndex].fifthLine}</div>
+            </motion.div>
+
+            <motion.div
+              key={carouselIndex}
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              className={`ml-[11px] grid h-[47px]  w-[47px] place-items-center rounded-full ${carouselData[carouselIndex].ctaBackgroundColor}`}
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='5.976'
+                height='10.453'
+                viewBox='0 0 5.976 10.453'
+              >
+                <path
+                  id='Icon_ionic-ios-arrow-back'
+                  data-name='Icon ionic-ios-arrow-back'
+                  d='M15.425,11.419,11.47,7.467a.747.747,0,0,1,1.058-1.055l4.481,4.478a.746.746,0,0,1,.022,1.03l-4.5,4.509a.747.747,0,1,1-1.058-1.055Z'
+                  transform='translate(-11.251 -6.194)'
+                  fill={carouselData[carouselIndex].ctaArrowColor}
+                />
+              </svg>
+            </motion.div>
+          </AnimatePresence>
         </div>
         <div className=' mt-10 flex overflow-hidden'>
-          <motion.svg
-            initial={{ y: 100 }}
-            animate={{
-              y: 0,
-              transition: {
-                ease: [0.6, 0.01, 0.05, 0.95],
-                duration: 1,
-              },
-            }}
-            className='mr-[38px]'
-            xmlns='http://www.w3.org/2000/svg'
-            width='9.379'
-            height='17.512'
-            viewBox='0 0 9.379 17.512'
-          >
-            <path
-              id='Icon_awesome-facebook-f'
-              data-name='Icon awesome-facebook-f'
-              d='M10.374,9.851l.486-3.169H7.819V4.625A1.585,1.585,0,0,1,9.606,2.912h1.383V.214A16.859,16.859,0,0,0,8.535,0C6.03,0,4.393,1.518,4.393,4.266V6.681H1.609V9.851H4.393v7.662H7.819V9.851Z'
-              transform='translate(-1.609)'
-              fill={carouselData[carouselIndex].socialIconsColor}
-            />
-          </motion.svg>
+          <AnimatePresence mode='wait'>
+            <motion.svg
+              key={carouselIndex + 'facebook'}
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              className='mr-[38px]'
+              xmlns='http://www.w3.org/2000/svg'
+              width='9.379'
+              height='17.512'
+              viewBox='0 0 9.379 17.512'
+            >
+              <path
+                id='Icon_awesome-facebook-f'
+                data-name='Icon awesome-facebook-f'
+                d='M10.374,9.851l.486-3.169H7.819V4.625A1.585,1.585,0,0,1,9.606,2.912h1.383V.214A16.859,16.859,0,0,0,8.535,0C6.03,0,4.393,1.518,4.393,4.266V6.681H1.609V9.851H4.393v7.662H7.819V9.851Z'
+                transform='translate(-1.609)'
+                fill={carouselData[carouselIndex].socialIconsColor}
+              />
+            </motion.svg>
 
-          <motion.svg
-            initial={{ y: 100 }}
-            animate={{
-              y: 0,
-              transition: {
-                ease: [0.6, 0.01, 0.05, 0.95],
-                duration: 1,
-              },
-            }}
-            className='mr-[38px]'
-            xmlns='http://www.w3.org/2000/svg'
-            width='21.562'
-            height='17.512'
-            viewBox='0 0 21.562 17.512'
-          >
-            <path
-              id='Icon_awesome-twitter'
-              data-name='Icon awesome-twitter'
-              d='M19.345,7.745c.014.192.014.383.014.575A12.487,12.487,0,0,1,6.786,20.893,12.488,12.488,0,0,1,0,18.909a9.142,9.142,0,0,0,1.067.055,8.85,8.85,0,0,0,5.486-1.888,4.427,4.427,0,0,1-4.132-3.065,5.573,5.573,0,0,0,.835.068,4.674,4.674,0,0,0,1.163-.15A4.42,4.42,0,0,1,.876,9.592V9.537a4.45,4.45,0,0,0,2,.561A4.426,4.426,0,0,1,1.5,4.188a12.561,12.561,0,0,0,9.112,4.624A4.989,4.989,0,0,1,10.507,7.8a4.423,4.423,0,0,1,7.648-3.024,8.7,8.7,0,0,0,2.8-1.067,4.407,4.407,0,0,1-1.943,2.435,8.859,8.859,0,0,0,2.545-.684,9.5,9.5,0,0,1-2.216,2.285Z'
-              transform='translate(0 -3.381)'
-              fill={carouselData[carouselIndex].socialIconsColor}
-            />
-          </motion.svg>
+            <motion.svg
+              key={carouselIndex + 'twitter'}
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              className='mr-[38px]'
+              xmlns='http://www.w3.org/2000/svg'
+              width='21.562'
+              height='17.512'
+              viewBox='0 0 21.562 17.512'
+            >
+              <path
+                id='Icon_awesome-twitter'
+                data-name='Icon awesome-twitter'
+                d='M19.345,7.745c.014.192.014.383.014.575A12.487,12.487,0,0,1,6.786,20.893,12.488,12.488,0,0,1,0,18.909a9.142,9.142,0,0,0,1.067.055,8.85,8.85,0,0,0,5.486-1.888,4.427,4.427,0,0,1-4.132-3.065,5.573,5.573,0,0,0,.835.068,4.674,4.674,0,0,0,1.163-.15A4.42,4.42,0,0,1,.876,9.592V9.537a4.45,4.45,0,0,0,2,.561A4.426,4.426,0,0,1,1.5,4.188a12.561,12.561,0,0,0,9.112,4.624A4.989,4.989,0,0,1,10.507,7.8a4.423,4.423,0,0,1,7.648-3.024,8.7,8.7,0,0,0,2.8-1.067,4.407,4.407,0,0,1-1.943,2.435,8.859,8.859,0,0,0,2.545-.684,9.5,9.5,0,0,1-2.216,2.285Z'
+                transform='translate(0 -3.381)'
+                fill={carouselData[carouselIndex].socialIconsColor}
+              />
+            </motion.svg>
 
-          <motion.svg
-            initial={{ y: 100 }}
-            animate={{
-              y: 0,
-              transition: {
-                ease: [0.6, 0.01, 0.05, 0.95],
-                duration: 1,
-              },
-            }}
-            xmlns='http://www.w3.org/2000/svg'
-            width='18.877'
-            height='18.873'
-            viewBox='0 0 18.877 18.873'
-          >
-            <path
-              id='Icon_awesome-instagram'
-              data-name='Icon awesome-instagram'
-              d='M9.435,6.835a4.839,4.839,0,1,0,4.839,4.839A4.831,4.831,0,0,0,9.435,6.835Zm0,7.985a3.146,3.146,0,1,1,3.146-3.146A3.152,3.152,0,0,1,9.435,14.82ZM15.6,6.637a1.129,1.129,0,1,1-1.129-1.129A1.126,1.126,0,0,1,15.6,6.637Zm3.2,1.145a5.585,5.585,0,0,0-1.524-3.954A5.622,5.622,0,0,0,13.327,2.3c-1.558-.088-6.229-.088-7.787,0a5.614,5.614,0,0,0-3.954,1.52A5.6,5.6,0,0,0,.061,7.779c-.088,1.558-.088,6.229,0,7.787A5.585,5.585,0,0,0,1.586,19.52,5.629,5.629,0,0,0,5.54,21.044c1.558.088,6.229.088,7.787,0a5.585,5.585,0,0,0,3.954-1.524,5.622,5.622,0,0,0,1.524-3.954c.088-1.558.088-6.224,0-7.782Zm-2.013,9.454A3.185,3.185,0,0,1,15,19.031c-1.242.493-4.19.379-5.563.379s-4.325.109-5.563-.379a3.185,3.185,0,0,1-1.794-1.794c-.493-1.242-.379-4.19-.379-5.563s-.109-4.325.379-5.563A3.185,3.185,0,0,1,3.872,4.317c1.242-.493,4.19-.379,5.563-.379S13.76,3.829,15,4.317a3.185,3.185,0,0,1,1.794,1.794c.493,1.242.379,4.19.379,5.563S17.285,16,16.793,17.237Z'
-              transform='translate(0.005 -2.238)'
-              fill={carouselData[carouselIndex].socialIconsColor}
-            />
-          </motion.svg>
+            <motion.svg
+              key={carouselIndex + 'instagram'}
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              exit='exit'
+              xmlns='http://www.w3.org/2000/svg'
+              width='18.877'
+              height='18.873'
+              viewBox='0 0 18.877 18.873'
+            >
+              <path
+                id='Icon_awesome-instagram'
+                data-name='Icon awesome-instagram'
+                d='M9.435,6.835a4.839,4.839,0,1,0,4.839,4.839A4.831,4.831,0,0,0,9.435,6.835Zm0,7.985a3.146,3.146,0,1,1,3.146-3.146A3.152,3.152,0,0,1,9.435,14.82ZM15.6,6.637a1.129,1.129,0,1,1-1.129-1.129A1.126,1.126,0,0,1,15.6,6.637Zm3.2,1.145a5.585,5.585,0,0,0-1.524-3.954A5.622,5.622,0,0,0,13.327,2.3c-1.558-.088-6.229-.088-7.787,0a5.614,5.614,0,0,0-3.954,1.52A5.6,5.6,0,0,0,.061,7.779c-.088,1.558-.088,6.229,0,7.787A5.585,5.585,0,0,0,1.586,19.52,5.629,5.629,0,0,0,5.54,21.044c1.558.088,6.229.088,7.787,0a5.585,5.585,0,0,0,3.954-1.524,5.622,5.622,0,0,0,1.524-3.954c.088-1.558.088-6.224,0-7.782Zm-2.013,9.454A3.185,3.185,0,0,1,15,19.031c-1.242.493-4.19.379-5.563.379s-4.325.109-5.563-.379a3.185,3.185,0,0,1-1.794-1.794c-.493-1.242-.379-4.19-.379-5.563s-.109-4.325.379-5.563A3.185,3.185,0,0,1,3.872,4.317c1.242-.493,4.19-.379,5.563-.379S13.76,3.829,15,4.317a3.185,3.185,0,0,1,1.794,1.794c.493,1.242.379,4.19.379,5.563S17.285,16,16.793,17.237Z'
+                transform='translate(0.005 -2.238)'
+                fill={carouselData[carouselIndex].socialIconsColor}
+              />
+            </motion.svg>
+          </AnimatePresence>
         </div>
       </div>
       <div className=' grid grid-cols-12 '>
@@ -362,7 +409,15 @@ const Carousel = ({ carouselData }: carouselInterface) => {
             ))}
           </div>
           <div className=' absolute bottom-[5%] hidden flex-col lg:right-[-33%] lg:flex xl:right-[-30%]'>
-            <div
+            <motion.div
+              // animate={{
+              //   borderWidth: ['1px', '5px', '9px'],
+              //   transition: {
+              //     ease: 'easeIn',
+              //     duration: 3,
+              //     repeat: Infinity,
+              //   },
+              // }}
               onClick={() => handelClickForward()}
               className='ml-[11px] mb-[21px] grid h-[47px] w-[47px] cursor-pointer place-items-center rounded-full border border-gray-600'
             >
@@ -373,6 +428,7 @@ const Carousel = ({ carouselData }: carouselInterface) => {
                 viewBox='0 0 5.976 10.453'
               >
                 <path
+                  style={{ width: '75%', borderWidth: '60%' }}
                   id='Icon_ionic-ios-arrow-back'
                   data-name='Icon ionic-ios-arrow-back'
                   d='M15.425,11.419,11.47,7.467a.747.747,0,0,1,1.058-1.055l4.481,4.478a.746.746,0,0,1,.022,1.03l-4.5,4.509a.747.747,0,1,1-1.058-1.055Z'
@@ -380,7 +436,7 @@ const Carousel = ({ carouselData }: carouselInterface) => {
                   fill='#4d4d4d'
                 />
               </svg>
-            </div>
+            </motion.div>
             <div
               onClick={() => handelClickBackward()}
               className='ml-[11px] grid h-[47px] w-[47px] cursor-pointer place-items-center  rounded-full border border-gray-600'

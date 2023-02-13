@@ -27,3 +27,4 @@ body {
     grid-template-columns: repeat(3, minmax(0, max-content));
   }
 }
+

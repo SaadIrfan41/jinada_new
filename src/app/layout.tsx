@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
+import Footer from '@/components/Footer'
 
 export default function RootLayout({
   children,
@@ -17,6 +18,8 @@ export default function RootLayout({
         <div className=' font-montserrat'>
           <Navbar />
           {children}
+
+          <Footer />
         </div>
       </body>
     </html>

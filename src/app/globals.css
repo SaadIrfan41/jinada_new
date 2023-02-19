@@ -9,7 +9,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .tranc {
@@ -24,7 +24,8 @@ body {
 
 @layer utilities {
   .grid-custom {
-    grid-template-columns: repeat(3, minmax(0, max-content));
+    grid-template-columns: repeat(2, minmax(0, max-content));
+    /* grid-auto-rows: max-content; */
   }
 }
 

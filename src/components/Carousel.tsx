@@ -84,15 +84,15 @@ const Carousel = ({ carouselData }: carouselInterface) => {
     },
   }
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (carouselIndex >= carouselData.length - 1) {
-        return setCarouselIndex(0)
-      }
-      setCarouselIndex(carouselIndex + 1)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [carouselIndex, carouselData.length])
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (carouselIndex >= carouselData.length - 1) {
+  //       return setCarouselIndex(0)
+  //     }
+  //     setCarouselIndex(carouselIndex + 1)
+  //   }, 5000)
+  //   return () => clearInterval(interval)
+  // }, [carouselIndex, carouselData.length])
 
   return (
     <div

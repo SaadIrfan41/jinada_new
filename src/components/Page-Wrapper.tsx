@@ -1,20 +1,36 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
-export const PageWrapper = ({ children }: { children: React.ReactNode }) => (
-  <motion.div
-    initial={{ x: 2000 }}
-    animate={{
-      x: 0,
-      transition: {
-        duration: 1,
-        ease: 'easeIn',
-      },
-    }}
-    exit={{ x: 2000 }}
-    className=' min-h-screen'
-  >
-    {children}
-  </motion.div>
-)
+export const PageWrapper = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname()
+  return (
+    // <AnimatePresence initial={false}>
+    // {/* // <LayoutGroup> */}
+    <motion.div
+      // layoutId={pathname?.toString()}
+      layout
+      initial={{ x: 2000 }}
+      animate={{
+        x: 0,
+        transition: {
+          duration: 1,
+          ease: 'easeIn',
+        },
+      }}
+      exit={{
+        x: 2000,
+        transition: {
+          duration: 1,
+          ease: 'easeOut',
+        },
+      }}
+      className=' min-h-screen overflow-hidden'
+    >
+      {children}
+    </motion.div>
+    // {/* // </LayoutGroup> */}
+    // </AnimatePresence>
+  )
+}

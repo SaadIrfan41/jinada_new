@@ -1,6 +1,8 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
+import 'animate.css'
 import Footer from '@/components/Footer'
+import { PageWrapper } from '@/components/Page-Wrapper'
 
 export default function RootLayout({
   children,
@@ -15,12 +17,14 @@ export default function RootLayout({
       */}
       <head />
       <body>
+        {/* <PageWrapper> */}
         <div className=' font-montserrat'>
           <Navbar />
           {children}
 
           <Footer />
         </div>
+        {/* </PageWrapper> */}
       </body>
     </html>
   )

@@ -4,10 +4,8 @@ import { PageWrapper } from '@/components/Page-Wrapper'
 
 const page = () => {
   return (
-    <PageWrapper>
-      {/* @ts-expect-error Server Component */}
-      <CarouselData />
-    </PageWrapper>
+    /* @ts-expect-error Server Component */
+    <CarouselData />
   )
 }
 

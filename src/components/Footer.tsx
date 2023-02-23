@@ -20,7 +20,7 @@ const Footer = () => {
       <div className='absolute left-[-6.25rem] top-[-1.875rem]'>
         <FooterShuriken />
       </div>
-      <div className='  py-24 text-center '>
+      <div className='  py-24 text-center z-0 '>
         <div className='flex justify-center'>
           <LogoShuriken />
         </div>
@@ -31,13 +31,13 @@ const Footer = () => {
         </p>
         <div className='flex mt-9 justify-center '>
           <div className=' pr-9'>
-            <FacebookSvg />
+            <FacebookSvg fillColor='fill-gray-400' />
           </div>
           <div className=' pr-7'>
-            <TwitterSvg />
+            <TwitterSvg fillColor='fill-gray-400' />
           </div>
 
-          <InstagramSvg />
+          <InstagramSvg fillColor='fill-gray-400' />
         </div>
       </div>
       <p className='bg-gray-900 text-center text-lg font-normal text-gray-400 py-9'>

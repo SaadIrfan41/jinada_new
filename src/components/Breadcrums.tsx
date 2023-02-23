@@ -12,9 +12,9 @@ const Breadcrums = () => {
   useEffect(() => {
     if (pathname) {
       const linkPath = pathname.split('/')
-      console.log('Before Shift', linkPath)
+      // console.log('Before Shift', linkPath)
       linkPath.shift()
-      console.log(linkPath)
+      // console.log(linkPath)
 
       const pathArray = linkPath.map((path, i) => {
         return {
@@ -30,7 +30,7 @@ const Breadcrums = () => {
     <nav className='flex ' aria-label='Breadcrumb'>
       <ol
         role='list'
-        className='flex w-screen max-w-6xl mt-[-30px] z-0 shadow-2xl h-16 mx-auto space-x-4 rounded-md bg-white px-6 '
+        className='flex w-screen xl:max-w-6xl max-w-sm  sm:max-w-lg md:max-w-2xl lg:max-w-4xl mt-[-30px] z-0 shadow-2xl h-16 mx-auto space-x-4 rounded-md bg-white px-6 '
       >
         <li className='flex'>
           <div className='flex items-center'>

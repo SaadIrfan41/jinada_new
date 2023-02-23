@@ -1,67 +1,101 @@
 import Breadcrums from '@/components/Breadcrums'
 import { PageWrapper } from '@/components/Page-Wrapper'
+import { FacebookSvg, InstagramSvg, TwitterSvg } from '@/components/Svgs'
+import Testinomials from '@/components/Testinomials'
 import React from 'react'
 // import { motion } from 'framer-motion'
-const testimonials = [
-  { image: '/testimonial.png', id: 1 },
-  { image: '/testimonial.png', id: 2 },
-  { image: '/testimonial.png', id: 3 },
-]
 
 const ProjectDetails = () => {
   return (
     <div>
-      <div className='h-[679px] bg-red-300 w-full relative pt-48 pl-96 bg-[url(/project05.png)] bg-cover bg-center text-white'>
-        <div className='max-w-[640px]  '>
-          <b className='text-7xl font-extrabold  '>e.Oliver</b>
+      <div className=' w-full relative pt-48 pl-10 pb-16 xl:pb-48 lg:pl-20 bg-[url(/project05.png)] bg-cover bg-center xl:pt-48  2xl:pl-96 text-white'>
+        <div className='max-w-xs md:max-w-md xl:max-w-2xl '>
+          <b className='font-extrabold text-5xl md:text-6xl lg:text-7xl   '>
+            e.Oliver
+          </b>
           <p className='mt-5 leading-[29px] mb-5 text-base font-medium'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
       </div>
-      <Breadcrums />
-      <div className=' relative pt-28 pb-36 grid  bg-[url(/patternBg.png)] bg-cover bg-center grid-cols-3 mt-40'>
-        <div className=' w-full h-full bg-gold opacity-75 absolute' />
-        <div className='relative max-w-[190px] ml-auto col-span-1 '>
-          <img className=' h-48 w-48 rounded-full' src={'/testimonial.png'} />
-          <svg
-            className='absolute top-0 right-0'
-            xmlns='http://www.w3.org/2000/svg'
-            width='45.228'
-            height='42.484'
-            viewBox='0 0 45.228 42.484'
-          >
-            <path
-              id='Path_5'
-              data-name='Path 5'
-              d='M37.127,36.01q-4.142,0-7.4-3.939t-3.26-10.4q0-5.488,5.93-16.817T41.214-6.475a1.462,1.462,0,0,1,1.625,1.682,70.48,70.48,0,0,1-3.385,7.346q-3.385,6.9-3.385,10.8,0,3.009,3.833,4.912t5.111,3.983a8.389,8.389,0,0,1,1.278,4.47,9.052,9.052,0,0,1-2.556,6.815A9.1,9.1,0,0,1,37.127,36.01Zm-25.4,0q-4.142,0-7.4-3.939t-3.26-10.4q0-5.488,5.93-16.817T15.812-6.475a1.462,1.462,0,0,1,1.625,1.682,70.48,70.48,0,0,1-3.385,7.346q-3.385,6.9-3.385,10.8,0,3.009,3.833,4.912t5.111,3.983a8.389,8.389,0,0,1,1.278,4.47,9.052,9.052,0,0,1-2.556,6.815A9.1,9.1,0,0,1,11.725,36.01Z'
-              transform='translate(-1.063 6.475)'
-              fill='#202020'
-            />
-          </svg>
-          <div className='flex justify-center'>
-            {testimonials.map((_, index) => (
-              <div key={index} className=' h-1 w-3 bg-white mr-3' />
-            ))}
-          </div>
+      <div className='mt-[-40px]  md:mt-[-10px] z-10 '>
+        <Breadcrums />
+      </div>
+      <div className=' grid grid-cols-1 lg:grid-cols-2  gap-14 '>
+        <div className='col-span-1 lg:ml-auto mx-auto mt-28'>
+          <img
+            src='/project05.png'
+            className=' w-[43.75rem] h-[28.75rem] '
+            alt=''
+          />
+          <img
+            src='/project05.png'
+            className=' w-[43.75rem] h-[28.75rem] '
+            alt=''
+          />
         </div>
-        <div className='col-span-2 max-w-3xl ml-14 z-0'>
-          <p className=' italic text-xl font-semibold leading-9 tracking-wider'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <div className=' flex mt-11'>
-            <img className=' h-24 w-40' src={'/signature.png'} alt='' />
-            <div className=' ml-11 leading-7 tracking-wider'>
-              <h1 className=' font-extrabold text-xl '>Liysa David</h1>
-              <span className=' text-base font-medium text-gray-600'>
-                Marketing Head, BlackPods Officialtm
+        <div className=' col-span-1 row-span-full lg:row-auto'>
+          <div className='  relative  grid lg:place-content-start place-content-center lg:pl-9  pl-5 md:pt-16 lg:pt-14 pt-5  mt-14'>
+            <div className='w-full'>
+              <h1
+                style={{ zIndex: -1 }}
+                className=' font-bold text-[100px] w-full sm:text-7xl text-center lg:text-start mx-auto md:text-8xl absolute top-0 left-0 text-[#F2F2F2]  '
+              >
+                details
+              </h1>
+              <p className='z-10 text-center lg:text-start text-base'>
+                Project Details
+              </p>
+              <h2 className='z-10 text-4xl lg:text-start text-center font-extrabold'>
+                e.Oliver
+              </h2>
+              <div className='flex mt-16'>
+                <span className=' font-bold text-base text-gray-600 mr-7'>
+                  SHARE:
+                </span>
+
+                <FacebookSvg fillColor='fill-gray-500' />
+
+                <span className=' mx-5'>
+                  <InstagramSvg fillColor='fill-gray-500' />
+                </span>
+
+                <TwitterSvg fillColor='fill-gray-500' />
+              </div>
+            </div>
+            <p className=' font-medium text-base  max-w-lg mt-10 leading-7'>
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+              invidunt ut labore et dolore magna aliquyam erat, sed diam
+              voluptua
+            </p>
+            <div className=' mt-20'>
+              <h4 className='font-bold text-base text-gray-600'>Client:</h4>
+              <span className='font-medium text-base   leading-7'>
+                Mark Thomas
+              </span>
+              <div className=' my-7'>
+                <h4 className='font-bold text-base text-gray-600'>Service:</h4>
+                <span className='font-medium text-base   leading-7'>
+                  Store / SEO / Website / Content Writing / Email Marketing
+                </span>
+              </div>
+              <h4 className='font-bold text-base text-gray-600'>
+                Project Link:
+              </h4>
+              <span className='font-medium text-base   leading-7'>
+                www.eOliver.com
               </span>
             </div>
           </div>
         </div>
       </div>
+      <Testinomials />
     </div>
   )
 }

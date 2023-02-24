@@ -9,9 +9,9 @@ const Navbar = () => {
   const path = usePathname()
   const [isopen, setisopen] = useState(false)
   useEffect(() => {
-    isopen === true
-      ? (document.body.style.overflow = 'hidden')
-      : (document.body.style.overflow = 'auto')
+    isopen === false
+      ? (document.body.style.overflow = 'auto')
+      : (document.body.style.overflow = 'hidden')
   }, [isopen])
 
   const top = {
@@ -131,6 +131,9 @@ const Navbar = () => {
             <Link
               onClick={() => {
                 setisopen(!isopen)
+                isopen
+                  ? (document.body.style.overflow = 'auto')
+                  : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-1000 before:h-1 before:w-screen before:scale-y-[1] before:transition-all before:duration-500  hover:w-screen before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0  before:hover:scale-y-[8] before:hover:bg-gold'
               href='/'
@@ -140,6 +143,9 @@ const Navbar = () => {
             <Link
               onClick={() => {
                 setisopen(!isopen)
+                isopen
+                  ? (document.body.style.overflow = 'auto')
+                  : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1] before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
               href='/projects'
@@ -147,15 +153,27 @@ const Navbar = () => {
               <span className='relative '>PROJECTS</span>
             </Link>
             <Link
+              onClick={() => {
+                setisopen(!isopen)
+                isopen
+                  ? (document.body.style.overflow = 'auto')
+                  : (document.body.style.overflow = 'hidden')
+              }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1]  before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
-              href='/'
+              href='/studio'
             >
               <span className='relative '>STUDIO</span>
             </Link>
 
             <Link
+              onClick={() => {
+                setisopen(!isopen)
+                isopen
+                  ? (document.body.style.overflow = 'auto')
+                  : (document.body.style.overflow = 'hidden')
+              }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1]  before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
-              href='/'
+              href='/contact'
             >
               <span className='relative '>CONTACT</span>
             </Link>

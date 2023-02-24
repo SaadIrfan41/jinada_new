@@ -62,7 +62,7 @@ const page = () => {
       <div className='grid sm:max-w-xl md:grid-cols-2 grid-cols-1 gap-7 max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto mt-12'>
         <Link
           href={`/projects/${projectsData[0].name}`}
-          className='relative w-[570px] h-[534px] ml-auto'
+          className='relative w-[570px] h-[480px] ml-auto'
         >
           <Image
             src={projectsData[0].image}
@@ -86,7 +86,7 @@ const page = () => {
 
         <Link
           href={`/projects/${projectsData[3].name}`}
-          className='relative  w-[570px] h-[534px]'
+          className='relative  w-[570px] h-[480px]'
         >
           <Image fill={true} src={projectsData[3].image} alt='' className='' />
         </Link>

@@ -20,7 +20,7 @@ const ProjectDetails = () => {
         </div>
       </div>
       <div className='mt-[-40px]  md:mt-[-10px] z-10 '>
-        {/* <Breadcrums /> */}
+        <Breadcrums />
       </div>
       <div className=' grid grid-cols-1 lg:grid-cols-2  gap-14 '>
         <div className='col-span-1 lg:ml-auto mx-auto mt-28'>

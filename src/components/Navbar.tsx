@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -8,6 +8,11 @@ import { usePathname } from 'next/navigation'
 const Navbar = () => {
   const path = usePathname()
   const [isopen, setisopen] = useState(false)
+  useEffect(() => {
+    isopen === true
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'auto')
+  }, [isopen])
 
   const top = {
     animate: {
@@ -29,7 +34,7 @@ const Navbar = () => {
     },
   }
   return (
-    <div className={`${path === '/' && 'hidden'}`}>
+    <div className={`${path === '/' && 'hidden'} overflow-hidden`}>
       <div className='absolute top-[55px] left-[60px]  z-20 cursor-pointer'>
         <Link href={'/'}>
           {' '}
@@ -80,9 +85,6 @@ const Navbar = () => {
       <button
         onClick={() => {
           setisopen(!isopen)
-          isopen === false
-            ? (document.body.style.overflow = 'hidden')
-            : (document.body.style.overflow = 'auto')
         }}
         className='absolute top-[55px] right-16  z-20 '
       >
@@ -124,16 +126,21 @@ const Navbar = () => {
                 duration: 1,
               },
             }}
-            className='  text-#4D4D4D fixed z-10 grid h-full   min-h-screen min-w-full  place-content-center gap-y-5  bg-white  text-center text-6xl font-extrabold'
+            className='  text-#4D4D4D fixed z-10 grid h-full  overflow-hidden  min-h-screen min-w-full  place-content-center gap-y-5  bg-white  text-center text-6xl font-extrabold'
           >
             <Link
+              onClick={() => {
+                setisopen(!isopen)
+              }}
               className='relative z-10 text-gray-900 transition-all duration-1000 before:h-1 before:w-screen before:scale-y-[1] before:transition-all before:duration-500  hover:w-screen before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0  before:hover:scale-y-[8] before:hover:bg-gold'
               href='/'
             >
               <span className='relative '>HOME</span>
             </Link>
             <Link
-              onClick={() => setisopen(!isopen)}
+              onClick={() => {
+                setisopen(!isopen)
+              }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1] before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
               href='/projects'
             >

@@ -120,3 +120,7 @@ export const InstagramSvg = ({ fillColor }: any) => {
     </svg>
   )
 }
+
+export const WebDevelopmentSvg = () => {
+  return <></>
+}

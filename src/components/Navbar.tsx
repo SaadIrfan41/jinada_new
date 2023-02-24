@@ -17,7 +17,7 @@ const Navbar = () => {
   const top = {
     animate: {
       rotate: isopen ? 45 : 0,
-      y: isopen ? 30 : 0,
+      y: isopen ? 10 : 0,
 
       transition: {
         duration: 0.8,
@@ -27,7 +27,7 @@ const Navbar = () => {
   const bottom = {
     animate: {
       rotate: isopen ? -45 : 0,
-      y: isopen ? -20 : 0,
+      y: isopen ? -6 : 0,
       transition: {
         duration: 0.8,
       },
@@ -94,7 +94,18 @@ const Navbar = () => {
         }}
         className='absolute top-[55px] right-16  z-20 '
       >
-        <svg
+        <motion.div
+          variants={top}
+          animate='animate'
+          className=' h-1 w-10 bg-black '
+        />
+        <motion.div
+          variants={bottom}
+          animate='animate'
+          className=' h-1 w-10 bg-black mt-3'
+        />
+
+        {/* <svg
           className=' overflow-visible'
           viewBox='0 0 100 60'
           width='40'
@@ -116,7 +127,7 @@ const Navbar = () => {
             height='10'
             //   fill={carouselData[carouselIndex].headerColor}
           />
-        </svg>
+        </svg> */}
       </button>
 
       <AnimatePresence>

@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Breadcrums from '@/components/Breadcrums'
+import Footer from '@/components/Footer'
 import Testinomials from '@/components/Testinomials'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,7 +17,14 @@ const projectsData = [
 const page = () => {
   return (
     <div className=''>
-      <div className='  w-full relative pt-48 pl-10 pb-16 xl:pb-48 lg:pl-20 bg-[url(/image05.png)] bg-cover bg-center xl:pt-48  2xl:pl-96'>
+      <div className='  w-full relative pt-48 pl-10 pb-16 xl:pb-48 lg:pl-20  xl:pt-48  2xl:pl-96'>
+        <Image
+          priority
+          src={'/image05.png'}
+          fill={true}
+          className='  object-cover -z-10  '
+          alt=''
+        />
         <div className=' max-w-xs md:max-w-md xl:max-w-2xl'>
           <b className=' font-extrabold text-5xl md:text-6xl lg:text-7xl '>
             Projects.
@@ -60,41 +68,35 @@ const page = () => {
       </div>
 
       <div className='grid sm:max-w-xl md:grid-cols-2 grid-cols-1 gap-7 max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto mt-12'>
-        <Link
-          href={`/projects/${projectsData[0].name}`}
-          className='relative w-[570px] h-[480px] ml-auto'
-        >
-          <Image
+        <Link href={`/projects/${projectsData[0].name}`} className='relative '>
+          <img
             src={projectsData[0].image}
-            fill={true}
-            className=' ml-auto  '
+            // fill={true}
+            className=' ml-auto   '
             alt=''
           />
         </Link>
         <Link
           href={`/projects/${projectsData[1].name}`}
-          className=' md:row-span-2 relative w-[570px] h-[650px]'
+          className=' md:row-span-2 relative '
         >
-          <Image src={projectsData[1].image} alt='' fill={true} />
+          <img src={projectsData[1].image} alt='' />
         </Link>
         <Link
           href={`/projects/${projectsData[2].name}`}
-          className=' ml-auto md:row-span-2 relative w-[570px] h-[650px]'
+          className=' ml-auto md:row-span-2 relative '
         >
-          <Image src={projectsData[2].image} alt='' fill={true} />
+          <img src={projectsData[2].image} alt='' />
         </Link>
 
-        <Link
-          href={`/projects/${projectsData[3].name}`}
-          className='relative  w-[570px] h-[480px]'
-        >
-          <Image fill={true} src={projectsData[3].image} alt='' className='' />
+        <Link href={`/projects/${projectsData[3].name}`} className='relative '>
+          <img src={projectsData[3].image} alt='' className='' />
         </Link>
         <Link
           href={`/projects/${projectsData[4].name}`}
-          className=' md:col-span-2 col-span-1 mx-auto mt-[-35px] xl:mt-[-50px] relative w-[1170px] h-[650px]'
+          className=' md:col-span-2 col-span-1 mx-auto mt-[-35px] xl:mt-[-50px] relative '
         >
-          <Image fill={true} src={projectsData[4].image} alt='' />
+          <img src={projectsData[4].image} alt='' />
         </Link>
       </div>
       {/* View More Button */}
@@ -105,6 +107,7 @@ const page = () => {
       </div>
       {/* Testimonials Section */}
       <Testinomials />
+      <Footer />
     </div>
   )
 }

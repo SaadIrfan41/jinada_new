@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Breadcrums from '@/components/Breadcrums'
 import Testinomials from '@/components/Testinomials'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -45,7 +46,7 @@ const page = () => {
         </div>
       </div>
 
-      <Breadcrums />
+      {/* <Breadcrums /> */}
       <div className='  max-w-xl mx-auto relative max-h-44 py-14 xl:pl-20  grid place-items-center mt-14'>
         <h1 className=' font-bold grid place-content-center text-[100px] sm:text-7xl md:text-8xl mx-auto absolute inset-0 ml-auto text-[#F2F2F2] '>
           projects
@@ -59,30 +60,41 @@ const page = () => {
       </div>
 
       <div className='grid sm:max-w-xl md:grid-cols-2 grid-cols-1 gap-7 max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto mt-12'>
-        <Link href={`/projects/${projectsData[0].name}`}>
-          <img src={projectsData[0].image} className=' ml-auto  ' alt='' />
+        <Link
+          href={`/projects/${projectsData[0].name}`}
+          className='relative w-[570px] h-[534px] ml-auto'
+        >
+          <Image
+            src={projectsData[0].image}
+            fill={true}
+            className=' ml-auto  '
+            alt=''
+          />
         </Link>
         <Link
           href={`/projects/${projectsData[1].name}`}
-          className=' md:row-span-2'
+          className=' md:row-span-2 relative w-[570px] h-[650px]'
         >
-          <img src={projectsData[1].image} alt='' />
+          <Image src={projectsData[1].image} alt='' fill={true} />
         </Link>
         <Link
           href={`/projects/${projectsData[2].name}`}
-          className=' ml-auto md:row-span-2 '
+          className=' ml-auto md:row-span-2 relative w-[570px] h-[650px]'
         >
-          <img src={projectsData[2].image} alt='' />
+          <Image src={projectsData[2].image} alt='' fill={true} />
         </Link>
 
-        <Link href={`/projects/${projectsData[3].name}`}>
-          <img src={projectsData[3].image} alt='' className='' />
+        <Link
+          href={`/projects/${projectsData[3].name}`}
+          className='relative  w-[570px] h-[534px]'
+        >
+          <Image fill={true} src={projectsData[3].image} alt='' className='' />
         </Link>
         <Link
           href={`/projects/${projectsData[4].name}`}
-          className=' md:col-span-2 col-span-1 mx-auto mt-[-35px] xl:mt-[-50px] '
+          className=' md:col-span-2 col-span-1 mx-auto mt-[-35px] xl:mt-[-50px] relative w-[1170px] h-[650px]'
         >
-          <img src={projectsData[4].image} alt='' />
+          <Image fill={true} src={projectsData[4].image} alt='' />
         </Link>
       </div>
       {/* View More Button */}

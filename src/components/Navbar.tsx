@@ -133,6 +133,7 @@ const Navbar = () => {
               <span className='relative '>HOME</span>
             </Link>
             <Link
+              onClick={() => setisopen(!isopen)}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1] before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
               href='/projects'
             >

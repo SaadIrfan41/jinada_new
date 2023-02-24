@@ -46,7 +46,7 @@ const page = () => {
         </div>
       </div>
 
-      {/* <Breadcrums /> */}
+      <Breadcrums />
       <div className='  max-w-xl mx-auto relative max-h-44 py-14 xl:pl-20  grid place-items-center mt-14'>
         <h1 className=' font-bold grid place-content-center text-[100px] sm:text-7xl md:text-8xl mx-auto absolute inset-0 ml-auto text-[#F2F2F2] '>
           projects

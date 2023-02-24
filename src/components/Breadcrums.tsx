@@ -8,6 +8,7 @@ type breadcrumstypes = {
 }
 const Breadcrums = () => {
   const [breadcrumbs, setBreadcrumbs] = useState<breadcrumstypes[]>()
+
   const pathname = usePathname()
   useEffect(() => {
     if (pathname) {

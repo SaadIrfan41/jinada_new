@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+
 import Breadcrums from '@/components/Breadcrums'
 import Footer from '@/components/Footer'
 import Testinomials from '@/components/Testinomials'

@@ -10,7 +10,7 @@ const Navbar = () => {
   const [isopen, setisopen] = useState(false)
   useEffect(() => {
     isopen === false
-      ? (document.body.style.overflow = 'auto')
+      ? overflowBody()
       : (document.body.style.overflow = 'hidden')
   }, [isopen])
 
@@ -32,6 +32,12 @@ const Navbar = () => {
         duration: 0.8,
       },
     },
+  }
+
+  const overflowBody = () => {
+    setTimeout(() => {
+      document.body.style.overflow = 'auto'
+    }, 1000)
   }
   return (
     <div className={`${path === '/' && 'hidden'} overflow-hidden`}>
@@ -132,7 +138,7 @@ const Navbar = () => {
               onClick={() => {
                 setisopen(!isopen)
                 isopen
-                  ? (document.body.style.overflow = 'auto')
+                  ? overflowBody()
                   : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-1000 before:h-1 before:w-screen before:scale-y-[1] before:transition-all before:duration-500  hover:w-screen before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0  before:hover:scale-y-[8] before:hover:bg-gold'
@@ -144,7 +150,7 @@ const Navbar = () => {
               onClick={() => {
                 setisopen(!isopen)
                 isopen
-                  ? (document.body.style.overflow = 'auto')
+                  ? overflowBody()
                   : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1] before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
@@ -156,7 +162,7 @@ const Navbar = () => {
               onClick={() => {
                 setisopen(!isopen)
                 isopen
-                  ? (document.body.style.overflow = 'auto')
+                  ? overflowBody()
                   : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1]  before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
@@ -169,7 +175,7 @@ const Navbar = () => {
               onClick={() => {
                 setisopen(!isopen)
                 isopen
-                  ? (document.body.style.overflow = 'auto')
+                  ? overflowBody()
                   : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1]  before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'

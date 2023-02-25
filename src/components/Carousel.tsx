@@ -84,15 +84,19 @@ const Carousel = ({ carouselData }: carouselInterface) => {
     },
   }
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (carouselIndex >= carouselData.length - 1) {
-  //       return setCarouselIndex(0)
-  //     }
-  //     setCarouselIndex(carouselIndex + 1)
-  //   }, 5000)
-  //   return () => clearInterval(interval)
-  // }, [carouselIndex, carouselData.length])
+  useEffect(() => {
+    isopen === false
+      ? overflowBody()
+      : (document.body.style.overflow = 'hidden')
+  }, [isopen])
+  const overflowBody = () => {
+    const scrollbar = setTimeout(() => {
+      document.body.style.overflow = 'auto'
+    }, 1000)
+    return () => {
+      clearInterval(scrollbar)
+    }
+  }
 
   return (
     <div
@@ -159,13 +163,13 @@ const Carousel = ({ carouselData }: carouselInterface) => {
                 duration: 1,
               },
             }}
-            className=' text-#4D4D4D absolute z-10 grid h-full  min-h-screen min-w-full  place-content-center gap-y-5  bg-white  text-center text-6xl font-extrabold'
+            className='  text-#4D4D4D fixed z-10 grid h-full  overflow-hidden  min-h-screen min-w-full  place-content-center gap-y-5  bg-white  text-center text-6xl font-extrabold'
           >
             <Link
               onClick={() => {
                 setisopen(!isopen)
                 isopen
-                  ? (document.body.style.overflow = 'auto')
+                  ? overflowBody()
                   : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-1000 before:h-1 before:w-screen before:scale-y-[1] before:transition-all before:duration-500  hover:w-screen before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0  before:hover:scale-y-[8] before:hover:bg-gold'
@@ -177,7 +181,7 @@ const Carousel = ({ carouselData }: carouselInterface) => {
               onClick={() => {
                 setisopen(!isopen)
                 isopen
-                  ? (document.body.style.overflow = 'auto')
+                  ? overflowBody()
                   : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1] before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
@@ -189,7 +193,7 @@ const Carousel = ({ carouselData }: carouselInterface) => {
               onClick={() => {
                 setisopen(!isopen)
                 isopen
-                  ? (document.body.style.overflow = 'auto')
+                  ? overflowBody()
                   : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1]  before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
@@ -202,20 +206,22 @@ const Carousel = ({ carouselData }: carouselInterface) => {
               onClick={() => {
                 setisopen(!isopen)
                 isopen
-                  ? (document.body.style.overflow = 'auto')
+                  ? overflowBody()
                   : (document.body.style.overflow = 'hidden')
               }}
               className='relative z-10 text-gray-900 transition-all duration-500 before:h-1 before:w-screen before:scale-y-[1]  before:transition-all before:duration-500 hover:w-screen  before:hover:absolute before:hover:inset-y-10 before:hover:inset-x-0 before:hover:scale-y-[8]  before:hover:bg-gold'
-              href='/contact'
+              href='/Contact-Us'
             >
-              <span className='relative '>CONTACT</span>
+              <span className='relative '>Contact</span>
             </Link>
 
-            <div>
-              <img
-                className=' absolute bottom-0  right-0  lg:max-h-[807px] lg:max-w-[706px]'
+            <div className='grid grid-cols-1'>
+              <Image
+                className=' absolute bottom-0  right-0  '
                 src='/image04.png'
-                loading='eager'
+                loading='lazy'
+                width={700}
+                height={100}
                 // fill={true}
                 // style={{ objectFit: 'contain' }}
                 // width={866}

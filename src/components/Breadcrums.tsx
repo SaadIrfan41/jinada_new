@@ -19,7 +19,7 @@ const Breadcrums = () => {
 
       const pathArray = linkPath.map((path, i) => {
         return {
-          breadcrumb: path.replace(/%20/g, ' '),
+          breadcrumb: path.replace(/%20|-/g, ' '),
           href: '/' + linkPath.slice(0, i + 1).join('/'),
         }
       })

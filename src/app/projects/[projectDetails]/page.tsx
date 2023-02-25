@@ -31,7 +31,7 @@ const ProjectDetails = () => {
         <Breadcrums />
       </div>
       <div className=' grid grid-cols-1 xl:grid-cols-2  gap-14 '>
-        <div className='col-span-1 lg:ml-auto  mx-auto   mt-28 '>
+        <div className='col-span-1 xl:mr-0 mx-auto  mt-28 '>
           <Image
             width={700}
             height={460}

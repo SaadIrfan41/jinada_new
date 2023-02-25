@@ -35,9 +35,12 @@ const Navbar = () => {
   }
 
   const overflowBody = () => {
-    setTimeout(() => {
+    const scrollbar = setTimeout(() => {
       document.body.style.overflow = 'auto'
     }, 1000)
+    return () => {
+      clearInterval(scrollbar)
+    }
   }
   return (
     <div className={`${path === '/' && 'hidden'} overflow-hidden`}>
@@ -104,30 +107,6 @@ const Navbar = () => {
           animate='animate'
           className=' h-1 w-10 bg-black mt-3'
         />
-
-        {/* <svg
-          className=' overflow-visible'
-          viewBox='0 0 100 60'
-          width='40'
-          height='30'
-        >
-          <motion.rect
-            variants={top}
-            animate='animate'
-            width='100'
-            height='10'
-            //   fill={carouselData[carouselIndex].headerColor}
-          />
-
-          <motion.rect
-            variants={bottom}
-            animate='animate'
-            y='50'
-            width='100'
-            height='10'
-            //   fill={carouselData[carouselIndex].headerColor}
-          />
-        </svg> */}
       </button>
 
       <AnimatePresence>

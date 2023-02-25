@@ -97,6 +97,15 @@ const Carousel = ({ carouselData }: carouselInterface) => {
       clearInterval(scrollbar)
     }
   }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselIndex >= carouselData.length - 1) {
+        return setCarouselIndex(0)
+      }
+      setCarouselIndex(carouselIndex + 1)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [carouselIndex, carouselData.length])
 
   return (
     <div
@@ -163,7 +172,7 @@ const Carousel = ({ carouselData }: carouselInterface) => {
                 duration: 1,
               },
             }}
-            className='  text-#4D4D4D fixed z-10 grid h-full  overflow-hidden  min-h-screen min-w-full  place-content-center gap-y-5  bg-white  text-center text-6xl font-extrabold'
+            className='  text-#4D4D4D absolute z-10 grid h-full  overflow-hidden  min-h-screen w-screen  place-content-center gap-y-5  bg-white  text-center text-6xl font-extrabold'
           >
             <Link
               onClick={() => {

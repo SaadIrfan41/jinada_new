@@ -111,14 +111,14 @@ const Carousel = ({ carouselData }: carouselInterface) => {
     <div
       className={`${carouselData[carouselIndex].backgroundColor}  ${carouselData[carouselIndex].textColor} relative grid  h-screen grid-cols-2 overflow-hidden pl-5 text-base    lg:pl-16 `}
     >
-      <div className='absolute top-[55px] left-[60px]  z-20 cursor-pointer'>
+      <div className='absolute top-[55px] md:left-[60px] left-5  z-20 cursor-pointer'>
         <Link href={'/'}>
           {' '}
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            width='140'
-            height='30'
-            viewBox='0 0 140 30'
+            width='157.519'
+            height='31.737'
+            viewBox='0 0 157.519 31.737'
           >
             <path
               id='Union_1'
@@ -132,7 +132,7 @@ const Carousel = ({ carouselData }: carouselInterface) => {
       </div>
       <button
         onClick={() => setisopen(!isopen)}
-        className='absolute top-[55px] right-16  z-20 '
+        className='absolute top-[55px] md:right-16 right-5 z-20 '
       >
         <svg
           className=' overflow-visible'

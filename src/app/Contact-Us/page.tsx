@@ -36,7 +36,7 @@ const contact = () => {
       </div>
 
       <div className='grid xl:grid-cols-3 grid-cols-1 xl:ml-[20rem] mt-20'>
-        <div className='  max-w-sm mx-auto '>
+        <div className='  max-w-sm mx-auto text-center lg:text-start '>
           <h2 className=' text-3xl font-bold'>Get In Touch</h2>
           <p className=' font-normal text-md mt-4'>
             If You Are Interested In Working With Us, Please Get In Touch.

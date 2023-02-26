@@ -283,16 +283,16 @@ const page = () => {
       {/* NewsLetter Section */}
       <div className=' relative pt-28 pb-36   bg-[url(/patternBg.png)] grid bg-cover bg-center  mt-20'>
         <div className=' w-full h-full bg-gold opacity-75 absolute' />
-        <h1 className=' md:text-[3rem] text-2xl font-extrabold w-full text-center z-0 mb-3 leading-10'>
+        <h1 className=' md:text-[3rem] text-xl font-extrabold w-full text-center z-0 mb-3 leading-10'>
           Sign Up To Our Newsletter
         </h1>
-        <p className='md:text-lg text-md font-normal text-center z-0 leading-8'>
+        <p className='md:text-lg text-md mx-3 font-normal text-center z-0 leading-8'>
           To get the latest news from us please subscribe your email.
         </p>
         <div className='relative  bg-white max-w-7xl mx-auto mt-9 z-0'>
           <input
             placeholder='Subscribe to our Newsletter'
-            className=' text-lg font-medium pr-20 lg:w-[684px] w-[400px] md:w-[500px] py-6 pl-9  '
+            className=' text-lg font-medium pr-20 lg:w-[684px] w-[370px] md:w-[500px] py-6 pl-9  '
           />
           <button className='absolute  inset-y-0 right-0 flex items-center pr-7'>
             <PaperAirplaneSvg />

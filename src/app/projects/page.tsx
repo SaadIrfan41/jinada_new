@@ -57,7 +57,7 @@ const page = () => {
 
       <Breadcrums />
       <div className='  max-w-xl mx-auto relative max-h-44 py-14 xl:pl-20  grid place-items-center mt-14'>
-        <h1 className=' font-bold grid place-content-center text-[100px] sm:text-7xl md:text-8xl mx-auto absolute inset-0 ml-auto text-[#F2F2F2] '>
+        <h1 className=' font-bold grid place-content-center text-[80px] sm:text-7xl md:text-8xl mx-auto absolute inset-0 ml-auto text-[#F2F2F2] '>
           projects
         </h1>
         <div className='z-0 mt-5 sm:mt-2'>
@@ -67,7 +67,7 @@ const page = () => {
           <p className='z-0 text-center text-base'>Around Our Agency</p>
         </div>
       </div>
-
+      {/* Feature Projects */}
       <div className='grid sm:max-w-xl md:grid-cols-2 grid-cols-1 gap-7 max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl mx-auto mt-12'>
         <Link href={`/projects/${projectsData[0].name}`} className='relative '>
           <img

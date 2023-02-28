@@ -3,6 +3,7 @@ import './globals.css'
 import 'animate.css'
 import Footer from '@/components/Footer'
 import { PageWrapper } from '@/components/Page-Wrapper'
+import { NavbarContextProvider } from 'context/NavbarContext'
 
 export default function RootLayout({
   children,
@@ -19,10 +20,11 @@ export default function RootLayout({
       <body>
         {/* <PageWrapper> */}
         <div className=' font-montserrat'>
-          <Navbar />
-          {children}
-
-          {/* <Footer /> */}
+          <NavbarContextProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </NavbarContextProvider>
         </div>
         {/* </PageWrapper> */}
       </body>

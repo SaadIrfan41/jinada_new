@@ -1,11 +1,27 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { motion } from 'framer-motion'
+
 import Link from 'next/link'
 type breadcrumstypes = {
   breadcrumb: string
   href: string
 }
+
+const variants = {
+  initial: { x: -5000 },
+  animate: {
+    opacity: [0, 0.5, 1],
+
+    x: 0,
+    transition: {
+      ease: [0.6, 0.01, 0.05, 0.95],
+      duration: 1,
+    },
+  },
+}
+
 const Breadcrums = () => {
   const [breadcrumbs, setBreadcrumbs] = useState<breadcrumstypes[]>()
 
@@ -28,8 +44,16 @@ const Breadcrums = () => {
     }
   }, [pathname])
   return (
-    <nav className='flex ' aria-label='Breadcrumb'>
-      <ol
+    <motion.nav
+      variants={variants}
+      initial='initial'
+      animate='animate'
+      className='flex '
+      aria-label='Breadcrumb'
+    >
+      <motion.ol
+        animate={{ opacity: [0, 0.5, 1] }}
+        transition={{ delay: 0.2 }}
         role='list'
         className='flex w-screen xl:max-w-6xl max-w-sm  sm:max-w-lg md:max-w-2xl lg:max-w-4xl mt-[-30px] z-0 shadow-2xl h-16 mx-auto space-x-4 rounded-md bg-white px-6 '
       >
@@ -56,7 +80,12 @@ const Breadcrums = () => {
           </div>
         </li>
         {breadcrumbs?.map(({ breadcrumb, href }) => (
-          <li key={breadcrumb} className='flex'>
+          <motion.li
+            animate={{ opacity: [0, 0.5, 1] }}
+            transition={{ delay: 1 }}
+            key={breadcrumb}
+            className='flex'
+          >
             <div className='flex items-center'>
               <svg
                 className='h-full w-6 flex-shrink-0 text-gray-200'
@@ -75,10 +104,10 @@ const Breadcrums = () => {
                 {breadcrumb}
               </Link>
             </div>
-          </li>
+          </motion.li>
         ))}
-      </ol>
-    </nav>
+      </motion.ol>
+    </motion.nav>
   )
 }
 

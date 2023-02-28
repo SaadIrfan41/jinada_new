@@ -1,7 +1,20 @@
+'use client'
 import Breadcrums from '@/components/Breadcrums'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
 import React from 'react'
+import { motion } from 'framer-motion'
+
+const variants = {
+  initial: { y: 200 },
+  animate: {
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, 0.05, 0.95],
+      duration: 1.2,
+    },
+  },
+}
 
 const contact = () => {
   return (
@@ -14,25 +27,43 @@ const contact = () => {
           className='  object-cover -z-10  '
           alt=''
         />
-        <div className=' max-w-sm md:max-w-3xl xl:max-w-3xl'>
+        <div className=' max-w-sm md:max-w-3xl xl:max-w-3xl inline-block overflow-hidden'>
           <b className=' font-extrabold text-5xl md:text-6xl lg:text-7xl '>
-            Contact Us
+            <motion.p variants={variants} initial='initial' animate='animate'>
+              Contact Us
+            </motion.p>
           </b>
-          <p className='mt-5 leading-[29px] mb-5 text-base font-medium'>
+          <motion.p
+            variants={variants}
+            initial='initial'
+            animate='animate'
+            className='mt-5 leading-[29px] mb-5 text-base font-medium'
+          >
             We work with friends and clients all over the world
-          </p>
+          </motion.p>
         </div>
       </div>
       <Breadcrums />
       {/* Main Heading */}
       <div className='max-w-xl mx-auto relative max-h-44 py-14 xl:pl-20  grid place-items-center mt-14'>
-        <h1 className=' font-bold grid place-content-center text-[100px] sm:text-7xl md:text-8xl mx-auto absolute inset-0 ml-auto text-[#F2F2F2] xl:pl-20 '>
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          style={{ zIndex: -1 }}
+          className=' font-bold grid place-content-center text-[100px] sm:text-7xl md:text-8xl mx-auto absolute inset-0 ml-auto text-[#F2F2F2] xl:pl-20 '
+        >
           where
-        </h1>
+        </motion.h1>
 
-        <h2 className='z-0 md:text-5xl  mt-5 sm:mt-2 w-full  text-4xl text-center font-extrabold  '>
+        <motion.h2
+          variants={variants}
+          initial='initial'
+          animate='animate'
+          className='z-0 md:text-5xl  mt-5 sm:mt-2 w-full  text-4xl text-center font-extrabold  '
+        >
           Contact Us
-        </h2>
+        </motion.h2>
       </div>
 
       <div className='grid xl:grid-cols-3 grid-cols-1 xl:ml-[20rem] mt-20'>
@@ -69,7 +100,6 @@ const contact = () => {
           </form>
         </div>
       </div>
-      <Footer />
     </div>
   )
 }

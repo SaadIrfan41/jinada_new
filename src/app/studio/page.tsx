@@ -1,8 +1,10 @@
+'use client'
 import Breadcrums from '@/components/Breadcrums'
 import Footer from '@/components/Footer'
 import { PaperAirplaneSvg } from '@/components/Svgs'
 import Image from 'next/image'
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const servicesdata = [
   {
@@ -63,6 +65,17 @@ const servicesdata = [
   },
 ]
 
+const variants = {
+  initial: { y: 150 },
+  animate: {
+    y: 0,
+    transition: {
+      ease: [0.6, 0.01, 0.05, 0.95],
+      duration: 1.2,
+    },
+  },
+}
+
 const page = () => {
   return (
     <div>
@@ -74,45 +87,77 @@ const page = () => {
           className='  object-cover -z-10  '
           alt=''
         />
-        <div className=' max-w-xs md:max-w-md xl:max-w-2xl'>
-          <b className=' font-extrabold text-5xl md:text-6xl lg:text-7xl '>
-            Studio.
+        <div className=' max-w-xs md:max-w-md xl:max-w-2xl overflow-hidden inline-block'>
+          <b className=' font-extrabold text-5xl md:text-6xl lg:text-7xl overflow-hidden inline-block '>
+            <motion.p variants={variants} initial='initial' animate='animate'>
+              Studio.
+            </motion.p>
           </b>
-          <p className='mt-5 leading-[29px] mb-5 text-base font-medium'>
+          <motion.p
+            variants={variants}
+            initial='initial'
+            animate='animate'
+            className='mt-5 leading-[29px] mb-5 text-base font-medium'
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <button className='flex items-center pl-5 pr-7 text-base py-3 border border-black'>
-            <span className='mr-5'>Hire Us</span>
-            <svg
-              className=''
-              xmlns='http://www.w3.org/2000/svg'
-              width='5.976'
-              height='10.453'
-              viewBox='0 0 5.976 10.453'
+          </motion.p>
+          <div className='  inline-block overflow-hidden'>
+            <motion.button
+              variants={variants}
+              initial='initial'
+              animate='animate'
+              className='flex items-center pl-5 pr-7 text-base py-3 border border-black'
             >
-              <path
-                id='Icon_ionic-ios-arrow-back'
-                data-name='Icon ionic-ios-arrow-back'
-                d='M15.425,11.419,11.47,7.467a.747.747,0,0,1,1.058-1.055l4.481,4.478a.746.746,0,0,1,.022,1.03l-4.5,4.509a.747.747,0,1,1-1.058-1.055Z'
-                transform='translate(-11.251 -6.194)'
-                fill='#202020'
-              />
-            </svg>
-          </button>
+              <span className='mr-5'>Hire Us</span>
+              <svg
+                className=''
+                xmlns='http://www.w3.org/2000/svg'
+                width='5.976'
+                height='10.453'
+                viewBox='0 0 5.976 10.453'
+              >
+                <path
+                  id='Icon_ionic-ios-arrow-back'
+                  data-name='Icon ionic-ios-arrow-back'
+                  d='M15.425,11.419,11.47,7.467a.747.747,0,0,1,1.058-1.055l4.481,4.478a.746.746,0,0,1,.022,1.03l-4.5,4.509a.747.747,0,1,1-1.058-1.055Z'
+                  transform='translate(-11.251 -6.194)'
+                  fill='#202020'
+                />
+              </svg>
+            </motion.button>
+          </div>
         </div>
       </div>
       <Breadcrums />
       {/* Main Heading Section */}
       <div className='max-w-xl mx-auto relative max-h-44 py-14 xl:pl-20  grid place-items-center mt-14'>
-        <h1 className=' font-bold grid place-content-center text-[100px] sm:text-7xl md:text-8xl mx-auto absolute inset-0 ml-auto text-[#F2F2F2] xl:pl-20 '>
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          style={{ zIndex: -1 }}
+          className=' font-bold grid place-content-center text-[100px] sm:text-7xl md:text-8xl mx-auto absolute inset-0 ml-auto text-[#F2F2F2] xl:pl-20 '
+        >
           work
-        </h1>
-        <div className='z-0 mt-5 sm:mt-2 w-full'>
-          <h2 className='z-0 md:text-5xl  text-4xl text-center font-extrabold  '>
+        </motion.h1>
+        <div className='z-0 mt-5 sm:mt-2 w-full inline-block overflow-hidden'>
+          <motion.h2
+            variants={variants}
+            initial='initial'
+            animate='animate'
+            className='z-0 md:text-5xl  text-4xl text-center font-extrabold  '
+          >
             Our Studio
-          </h2>
-          <p className='z-0 text-center text-base'>Around Our Agency</p>
+          </motion.h2>
+          <motion.p
+            variants={variants}
+            initial='initial'
+            animate='animate'
+            className='z-0 text-center text-base'
+          >
+            Around Our Agency
+          </motion.p>
         </div>
       </div>
 
@@ -299,8 +344,6 @@ const page = () => {
           </button>
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }

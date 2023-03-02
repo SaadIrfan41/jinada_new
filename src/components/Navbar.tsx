@@ -84,7 +84,7 @@ const Navbar = () => {
           style={{ backgroundColor: color }}
           variants={bottom}
           animate='animate'
-          className={` h-1 w-10 bg-[${color}] } `}
+          className={` h-1 w-10  `}
         />
       </button>
 

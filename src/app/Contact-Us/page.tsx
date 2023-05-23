@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
-
+import ContactHeroImage from '../../../public/contactus.png'
 const variants = {
   initial: { y: 200 },
   animate: {
@@ -21,8 +21,9 @@ const contact = () => {
     <div>
       <div className='  w-full relative pt-48 pl-10 md:pl-28 pb-16 xl:pb-48   xl:pt-48  2xl:pl-96'>
         <Image
+          placeholder='blur'
           priority
-          src={'/contactus.png'}
+          src={ContactHeroImage}
           fill={true}
           className='  object-cover -z-10  '
           alt=''

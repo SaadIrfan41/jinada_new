@@ -71,6 +71,7 @@ const Projects = () => {
       <div className='  w-full relative pt-48 pl-10 pb-16 xl:pb-48 lg:pl-20  xl:pt-48  2xl:pl-96'>
         <Image
           priority
+          placeholder='blur'
           src={HeroImage}
           fill={true}
           className='  object-cover -z-10  '

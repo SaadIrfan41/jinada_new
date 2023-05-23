@@ -5,62 +5,70 @@ import { PaperAirplaneSvg } from '@/components/Svgs'
 import Image from 'next/image'
 import React from 'react'
 import { motion } from 'framer-motion'
-
+import ServiceImage01 from '../../../public/web.png'
+import ServiceImage02 from '../../../public/SocialMedia.png'
+import ServiceImage03 from '../../../public/PaidMedia.png'
+import ServiceImage04 from '../../../public/seo.png'
+import ServiceImage05 from '../../../public/ContenWtriting.png'
+import ServiceImage06 from '../../../public/messenger.png'
+import ServiceImage07 from '../../../public/storeManagment.png'
+import ServiceImage08 from '../../../public/emailMarketing.png'
+import StudioHeroImahe from '../../../public/studio.png'
 const servicesdata = [
   {
     name: 'Website Development',
     description:
       'WOW your site visitor under 3 seconds. Make your website best by analyzing, planning, and implementing the best practices.',
-    image: '/web.png',
+    image: ServiceImage01,
     id: 'service1',
   },
   {
     name: 'Social Media Growth',
     description:
       '2020 requires unprecedented social media growth and management strategies. Luckily, we got the perfect blend for you.',
-    image: '/SocialMedia.png',
+    image: ServiceImage02,
     id: 'service2',
   },
   {
     name: 'Paid Media Services',
     description:
       'Whether it’s selling a product or generating thousands of leads for your business, we make every penny count.',
-    image: '/PaidMedia.png',
+    image: ServiceImage03,
     id: 'service3',
   },
   {
     name: 'SEO Services',
     description:
       'Online presence is a must for your business growth. Make your brand appear on the top of the ladder and let your best audience reach you.',
-    image: '/seo.png',
+    image: ServiceImage04,
     id: 'service4',
   },
   {
     name: 'Content Writing',
     description:
       'Web content, Blogs, Articles, or Ads copy, we got it all covered. Increase your SEO efforts with SEO content writing we provide.',
-    image: '/ContenWtriting.png',
+    image: ServiceImage05,
     id: 'service5',
   },
   {
     name: 'Messenger & Sms',
     description:
       'Something with an open ration of 80% and CTR over 40% can do miracles for your website. Don’t miss these two game-changers.',
-    image: '/messenger.png',
+    image: ServiceImage06,
     id: 'service6',
   },
   {
     name: 'Store Management',
     description:
       'Let us manage it all for you — a combined package of develop, market, and management, including fulfillment and customer support.',
-    image: '/storeManagment.png',
+    image: ServiceImage07,
     id: 'service7',
   },
   {
     name: 'Email Marketing',
     description:
       'Get optimized and effective email strategies to retain customers and recover lost revenue. Generate leads, nurture & convert.',
-    image: '/emailMarketing.png',
+    image: ServiceImage08,
     id: 'service8',
   },
 ]
@@ -82,7 +90,7 @@ const page = () => {
       <div className='  w-full relative pt-48 pl-10 pb-16 xl:pb-48 lg:pl-20  xl:pt-48  2xl:pl-96'>
         <Image
           priority
-          src={'/studio.png'}
+          src={StudioHeroImahe}
           fill={true}
           className='  object-cover -z-10  '
           alt=''

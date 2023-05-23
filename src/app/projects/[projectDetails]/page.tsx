@@ -6,7 +6,7 @@ import Image from 'next/image'
 import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useNavbarContext } from 'context/NavbarContext'
-
+import ProjectImage from '../../../../public/project05.png'
 const variants = {
   initial: { y: 150 },
   animate: {
@@ -30,7 +30,7 @@ const ProjectDetails = () => {
       <div className=' w-full relative pt-48 pl-10 pb-16 xl:pb-48 lg:pl-20  xl:pt-48  2xl:pl-96 text-white'>
         <Image
           priority
-          src={'/project05.png'}
+          src={ProjectImage}
           fill={true}
           className='  object-cover -z-10  '
           alt=''
@@ -63,7 +63,7 @@ const ProjectDetails = () => {
             width={700}
             height={460}
             priority
-            src='/project05.png'
+            src={ProjectImage}
             className=' w-[43.75rem] h-[28.75rem] mb-11 '
             alt=''
           />
@@ -71,7 +71,7 @@ const ProjectDetails = () => {
             priority
             width={700}
             height={460}
-            src='/project05.png'
+            src={ProjectImage}
             className=' w-[43.75rem] h-[28.75rem] '
             alt=''
           />

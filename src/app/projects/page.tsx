@@ -8,35 +8,41 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect } from 'react'
+import HeroImage from './../../../public/image05.png'
+import ProjectImage1 from './../../../public/project01.png'
+import ProjectImage2 from './../../../public/project02.png'
+import ProjectImage3 from './../../../public/project03.png'
+import ProjectImage4 from './../../../public/project04.png'
+import ProjectImage5 from './../../../public/project05.png'
 
 const projectsData = [
   {
     name: 'Astra Digitals',
-    image: '/project01.png',
+    image: ProjectImage1,
     id: 'projectImage1',
     tag: 'Store Management / Email Marketing',
   },
   {
     name: 'Blackpods Official',
-    image: '/project02.png',
+    image: ProjectImage2,
     id: 'projectImage2',
     tag: 'Website / SEO',
   },
   {
     name: 'Lorem ipsum',
-    image: '/project03.png',
+    image: ProjectImage3,
     id: 'projectImage3',
     tag: 'Website / Branding',
   },
   {
     name: 'TrendUX',
-    image: '/project04.png',
+    image: ProjectImage4,
     id: 'projectImage4',
     tag: 'Web / Mobile App',
   },
   {
     name: 'e.Oliver',
-    image: '/project05.png',
+    image: ProjectImage5,
     id: 'projectImage5',
     tag: 'Store / SEO / Website / Content Writing / Email Marketing',
   },
@@ -65,7 +71,7 @@ const Projects = () => {
       <div className='  w-full relative pt-48 pl-10 pb-16 xl:pb-48 lg:pl-20  xl:pt-48  2xl:pl-96'>
         <Image
           priority
-          src={'/image05.png'}
+          src={HeroImage}
           fill={true}
           className='  object-cover -z-10  '
           alt=''
@@ -152,7 +158,7 @@ const Projects = () => {
           href={`/projects/${projectsData[0].name}`}
           className='relative hover:from-transparent  overflow-hidden hover:rotate-2 hover:scale-105 duration-500 hover:to-gray-900/50 hover:bg-gradient-to-b  transition-all max-w-[570px] ml-auto '
         >
-          <img
+          <Image
             src={projectsData[0].image}
             // fill={true}
             className=' ml-auto  z-0  mix-blend-overlay '
@@ -183,7 +189,7 @@ const Projects = () => {
           href={`/projects/${projectsData[1].name}`}
           className=' md:row-span-2 relative hover:from-transparent  overflow-hidden hover:rotate-2 hover:scale-105 duration-500 hover:to-gray-900/50 hover:bg-gradient-to-b  transition-all max-w-[570px] '
         >
-          <img
+          <Image
             src={projectsData[1].image}
             alt=''
             className='mix-blend-overlay '
@@ -212,7 +218,7 @@ const Projects = () => {
           href={`/projects/${projectsData[2].name}`}
           className=' ml-auto md:row-span-2 relative hover:from-transparent  overflow-hidden hover:rotate-2 hover:scale-105 duration-500 hover:to-gray-900/50 hover:bg-gradient-to-b  transition-all max-h-[596px] '
         >
-          <img
+          <Image
             src={projectsData[2].image}
             alt=''
             className='mix-blend-overlay '
@@ -242,7 +248,7 @@ const Projects = () => {
           href={`/projects/${projectsData[3].name}`}
           className='relative hover:from-transparent  overflow-hidden hover:rotate-2 hover:scale-105 duration-500 hover:to-gray-900/50 hover:bg-gradient-to-b  transition-all mt-0 max-w-[570px] max-h-[534px]  '
         >
-          <img
+          <Image
             src={projectsData[3].image}
             alt=''
             className='mix-blend-overlay '
@@ -271,7 +277,7 @@ const Projects = () => {
           href={`/projects/${projectsData[4].name}`}
           className=' md:col-span-2 col-span-1 mx-auto relative hover:from-transparent max-h-[596px]  overflow-hidden hover:rotate-1 hover:scale-105 duration-500 hover:to-gray-900/50 hover:bg-gradient-to-b  transition-all '
         >
-          <img
+          <Image
             src={projectsData[4].image}
             alt=''
             className='mix-blend-overlay '
